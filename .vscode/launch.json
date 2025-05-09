@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "LS debug -- minimal-run.yaml",
+      "type": "python",
+      "request": "launch",
+      "module": "llama_stack.cli.llama",
+      "args": ["stack", "run", "distributions/masterclass-minimal/run.yaml"],
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "LS debug -- agents-run.yaml",
+      "type": "python",
+      "request": "launch",
+      "module": "llama_stack.cli.llama",
+      "args": ["stack", "run", "distributions/masterclass-agents/run.yaml"],
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}",
+      }
+    }
+  ]
+}

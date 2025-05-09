@@ -1,0 +1,62 @@
+version: "2"
+image_name: masterclass_agents
+apis:
+  - inference
+  - telemetry
+  - agents
+  - vector_io
+  - safety
+  - tool_runtime
+providers:
+  inference:
+    - provider_id: ollama
+      provider_type: remote::ollama
+      config:
+        url: ${env.OLLAMA_URL:http://localhost:11434}
+  agents:
+    - provider_id: meta-reference
+      provider_type: inline::meta-reference
+      config:
+        persistence_store:
+          type: sqlite
+          namespace: null
+          db_path: distributions/agents_store.db
+  vector_io:
+    - provider_id: sqlite-vec
+      provider_type: inline::sqlite-vec
+      config:
+        db_path: distributions/sqlite_vec.db
+  tool_runtime:
+    - provider_id: model-context-protocol
+      provider_type: remote::model-context-protocol
+      config: {}
+    - provider_id: tavily-search
+      provider_type: remote::tavily-search
+      config:
+        api_key: ${env.TAVILY_SEARCH_API_KEY:}
+        max_results: 3    
+  safety:
+    - provider_id: llama-guard
+      provider_type: inline::llama-guard
+      config:
+        excluded_categories: []
+  telemetry:
+    - provider_id: meta-reference
+      provider_type: inline::meta-reference
+      config:
+        service_name: ${env.OTEL_SERVICE_NAME:}
+      sinks: ${env.TELEMETRY_SINKS:console,sqlite}
+      sqlite_db_path: distributions/trace_store.db
+models:
+  - metadata: {}
+    model_id: meta-llama/Llama-3.2-3B-Instruct
+    provider_id: ollama
+    model_type: llm
+    provider_model_id: llama3.2:3b-instruct-fp16 # from ollama list
+tool_groups:
+  - toolgroup_id: mcp::filesystem
+    provider_id: model-context-protocol
+    mcp_endpoint:
+      uri: "http://localhost:8000/sse"
+  - toolgroup_id: builtin::websearch
+    provider_id: tavily-search

@@ -1,0 +1,12 @@
+[project]
+name = "ai-masterclass-2025"
+version = "0.1.0"
+description = "AI Masterclass 2025 (for the dev setup option)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "llama-stack",
+]
+
+[tool.uv.sources]
+llama-stack = { path = "../llama-stack", editable = true }

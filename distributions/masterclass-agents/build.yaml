@@ -1,0 +1,15 @@
+version: "2"
+distribution_spec:
+  description: Agents distribution for the AI Masterclass 2025
+  providers:
+    inference:
+      - remote::ollama
+    telemetry:
+      - inline::meta-reference
+    agents:
+      - inline::meta-reference
+    tool_runtime:
+      - remote::brave-search
+      - remote::tavily-search
+      - inline::rag-runtime
+image_type: venv
