@@ -20,12 +20,12 @@ providers:
         persistence_store:
           type: sqlite
           namespace: null
-          db_path: distributions/agents_store.db
+          db_path: ${env.SQLITE_STORE_DIR:~/.llama/distributions/masterclass_agents}/agents_store.db
   vector_io:
-    - provider_id: sqlite-vec
-      provider_type: inline::sqlite-vec
+    - provider_id: milvus
+      provider_type: inline::milvus
       config:
-        db_path: distributions/sqlite_vec.db
+        db_path: ${env.MILVUS_STORE_DIR:~/.llama/distributions/masterclass_agents}/milvus_store.db
   tool_runtime:
     - provider_id: model-context-protocol
       provider_type: remote::model-context-protocol
@@ -35,6 +35,9 @@ providers:
       config:
         api_key: ${env.TAVILY_SEARCH_API_KEY:}
         max_results: 3    
+    - provider_id: rag-runtime
+      provider_type: inline::rag-runtime
+      config: {}
   safety:
     - provider_id: llama-guard
       provider_type: inline::llama-guard
@@ -53,10 +56,19 @@ models:
     provider_id: ollama
     model_type: llm
     provider_model_id: llama3.2:3b-instruct-fp16 # from ollama list
+  - metadata:
+      embedding_dimension: 384
+    model_id: all-MiniLM-L6-v2
+    provider_id: ollama
+    provider_model_id: all-minilm:latest
+    model_type: embedding    
 tool_groups:
-  - toolgroup_id: mcp::filesystem
-    provider_id: model-context-protocol
-    mcp_endpoint:
-      uri: "http://localhost:8000/sse"
+  # - toolgroup_id: mcp::filesystem
+  #   provider_id: model-context-protocol
+  #   mcp_endpoint:
+  #     uri: "http://localhost:8000/sse"
   - toolgroup_id: builtin::websearch
     provider_id: tavily-search
+  - toolgroup_id: builtin::rag
+    provider_id: rag-runtime
+external_providers_dir: null  

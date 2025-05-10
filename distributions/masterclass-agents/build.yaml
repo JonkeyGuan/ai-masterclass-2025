@@ -12,4 +12,10 @@ distribution_spec:
       - remote::brave-search
       - remote::tavily-search
       - inline::rag-runtime
+      - remote::model-context-protocol
+    safety:
+      - inline::llama-guard
+    vector_io:
+      - inline::milvus
 image_type: venv
+image_name: masterclass_agents
