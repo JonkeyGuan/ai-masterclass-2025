@@ -69,7 +69,7 @@ docling --version
 Extend your environment with the additional packages required for this part:
 
 ```shell
-pip install matplotlib pillow rich
+pip install notebook matplotlib pillow rich
 ```
 
 ### Tasks
@@ -80,7 +80,7 @@ pip install matplotlib pillow rich
 
 ### Playbook
 
-Check out the [advanced RAG notebook](./advanced_rag.ipynb) for a deep dive on using
+Check out the [advanced RAG notebook](./p2_advanced_rag.ipynb) for a deep dive on using
 Docling's powerful capabilities for RAG with Llama Stack.
 
 ### Resources
