@@ -21,11 +21,12 @@ This masterclass combines presentations with (lots of) hands-on exercises to ens
 ## Schedule
 
 - [Mon, May 12] Unit 1 - Introduction to Llama Stack
-- [Tue, May 13] Unit 2 - Building RAG Applications with Docling
+- [Tue, May 13] [Unit 2 - Building RAG and Agent Applications with Docling](./docs/unit2/README.md)
 - [Wed, May 14] Unit 3 - Evaluating and Safeguarding AI Applications
 
 ## Instructors
 
 - [Mac Misiura](https://github.com/m-misiura)
 - [Michele Dolfi](https://github.com/dolfim-ibm)
+- [Panos Vagenas](https://github.com/vagenas)
 - [Diego Maniloff](https://github.com/dmaniloff)
