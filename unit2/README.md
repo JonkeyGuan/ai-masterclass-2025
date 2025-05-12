@@ -74,10 +74,41 @@ TBA
 
 ## Part 3 - Agents and Docling
 
-TBA
+Simple MCP skeleton
+
+```py
+from llama_stack_client import LlamaStackClient
+from mcp.server.fastmcp import FastMCP
+mcp = FastMCP("Docling Documents Ingest")
+
+@mcp.tool()
+def ingest_document_to_vectordb(source: str, vector_db_id: str):
+    """
+    Ingest source documents into the vector database for using them in RAG applications.
+
+    :param source: The http source document to ingest
+    :param vector_db_id: The llama stack vector_db_id
+    :returns: Filename of the file which has been ingested
+    """
+
+    print(f"{source=}")
+    print(f"{vector_db_id=}")
+
+    return "filename"
+
+
+if __name__ == "__main__":
+    # Initialize and run the server
+    mcp.run(transport="sse")
+```
+
+_Note: When implementing an MCP tool, the docstring is very important, because it will be used by the LLM to orchestrate the flow._
 
 ### Tasks
 
 1. Build a Docling agent and connect it to Llama Stack
+    - Add a tool which will perform the "Ingest document XYZ"
+    - [Optional] Keep a local cache of converted documents to avoid repeated convert
+    - [Optional] Allow metadata search (e.g. publication year or affilition) to select the documents.
 2. Deploy your MCP tool in OpenShift
 3. Run all-in-one with the Llama Stack Playground UI
