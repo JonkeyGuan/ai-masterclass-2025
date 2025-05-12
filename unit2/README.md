@@ -25,7 +25,30 @@ Useful references:
 
 ## Part 1 - Getting started
 
-TBA
+All the content for this part is available in the Docling docs:
+- [Installation](https://docling-project.github.io/docling/installation/)
+- [Examples](https://docling-project.github.io/docling/examples/)
+
+In a nutshell, install Docling in a new Python virtual environment.
+
+```shell
+# Create a new venv
+python3 -m venv venv
+
+# Activate the venv
+source venv/bin.activate
+
+# Install Docling
+pip3 install "docling[vlm]"
+```
+
+_Note: if you prefer, use `uv venv` and `uv pip "docling[vlm]"` instead of the commands above._
+
+To verify the installtion, try out the Docling CLI
+
+```shell
+docling --version
+```
 
 ### Tasks
 
