@@ -33,18 +33,18 @@ In a nutshell, install Docling in a new Python virtual environment.
 
 ```shell
 # Create a new venv
-python3 -m venv venv
+python -m venv venv
 
 # Activate the venv
-source venv/bin.activate
+source venv/bin/activate
 
 # Install Docling
-pip3 install "docling[vlm]"
+pip install "docling[vlm]"
 ```
 
 _Note: if you prefer, use `uv venv` and `uv pip "docling[vlm]"` instead of the commands above._
 
-To verify the installtion, try out the Docling CLI
+To verify the installation, try out the Docling CLI
 
 ```shell
 docling --version
@@ -63,7 +63,14 @@ docling --version
 
 ## Part 2 - Llama Stack and Docling
 
-TBA
+
+### Setup
+
+Extend your environment with the additional packages required for this part:
+
+```shell
+pip install matplotlib pillow rich
+```
 
 ### Tasks
 
@@ -71,6 +78,19 @@ TBA
 2. Multi-modal RAG
 3. Visual grounding
 
+### Playbook
+
+Check out the [advanced RAG notebook](./advanced_rag.ipynb) for a deep dive on using
+Docling's powerful capabilities for RAG with Llama Stack.
+
+### Resources
+
+Need more details on some of the underlying concepts? The following resources can
+provide useful hints:
+
+- [Hybrid chunking](https://docling-project.github.io/docling/examples/hybrid_chunking/)
+- [Serialization](https://docling-project.github.io/docling/examples/serialization/)
+- [Picture annotation](https://docling-project.github.io/docling/examples/pictures_description/)
 
 ## Part 3 - Agents and Docling
 
