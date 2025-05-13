@@ -1,0 +1,11 @@
+# Part 1 - Docling
+docling~=2.31
+
+# Part 2 - RAG
+ipykernel~=6.29
+notebook~=7.4
+llama-stack-client~=0.2.5
+matplotlib~=3.10
+
+# Part 3 - Agents
+mcp~=1.8
