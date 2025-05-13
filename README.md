@@ -21,7 +21,7 @@ This masterclass combines presentations with (lots of) hands-on exercises to ens
 ## Schedule
 
 - [Mon, May 12] Unit 1 - Introduction to Llama Stack
-- [Tue, May 13] [Unit 2 - Building RAG and Agent Applications with Docling](./docs/unit2/README.md)
+- [Tue, May 13] [Unit 2 - Building RAG and Agent Applications with Docling](./unit-2/README.md)
 - [Wed, May 14] Unit 3 - Evaluating and Safeguarding AI Applications
 
 ## Instructors
