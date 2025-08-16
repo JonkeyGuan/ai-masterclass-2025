@@ -26,3 +26,8 @@ tool_groups:
 ```
 llama stack run ~/.llama/distributions/masterclass_agents/masterclass_agents-run.yaml
 ```
+
+local mcp
+```
+npx -y supergateway --port 8000 --stdio 'npx -y @modelcontextprotocol/server-filesystem /tmp'
+```
