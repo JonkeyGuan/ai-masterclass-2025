@@ -3,8 +3,8 @@ distribution_spec:
   description: Minimal distro for the AI Masterclass 2025
   providers:
     inference:
-      - remote::ollama
+      - provider_type: remote::ollama
     telemetry:
-      - inline::meta-reference
+      - provider_type: inline::meta-reference
 image_type: venv
 image_name: masterclass_minimal

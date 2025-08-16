@@ -3,19 +3,21 @@ distribution_spec:
   description: Agents distribution for the AI Masterclass 2025
   providers:
     inference:
-      - remote::ollama
+      - provider_type: remote::ollama
     telemetry:
-      - inline::meta-reference
+      - provider_type: inline::meta-reference
     agents:
-      - inline::meta-reference
+      - provider_type: inline::meta-reference
     tool_runtime:
-      - remote::brave-search
-      - remote::tavily-search
-      - inline::rag-runtime
-      - remote::model-context-protocol
+      - provider_type: remote::brave-search
+      - provider_type: remote::tavily-search
+      - provider_type: inline::rag-runtime
+      - provider_type: remote::model-context-protocol
     safety:
-      - inline::llama-guard
+      - provider_type: inline::llama-guard
     vector_io:
-      - inline::milvus
+      - provider_type: inline::milvus
 image_type: venv
 image_name: masterclass_agents
+additional_pip_packages:
+- sqlalchemy[asyncio]
