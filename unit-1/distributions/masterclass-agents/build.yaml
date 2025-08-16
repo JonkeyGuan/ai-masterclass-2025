@@ -21,3 +21,4 @@ image_type: venv
 image_name: masterclass_agents
 additional_pip_packages:
 - sqlalchemy[asyncio]
+- geocoder
